@@ -21,7 +21,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/img/eros_light.png',
+              Image.asset('assets/img/logo_sin_text.png',
                 width: 0.8 * MediaQuery.of(context).size.width,
               ),
               Padding(
@@ -48,7 +48,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                               filled: true,
                               fillColor: Colors.white.withOpacity(0.6),
                               prefixIcon: Icon(Icons.person),
-                              hintText: 'Correo Electrónico',
+                              hintText: 'Username or email',
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
@@ -63,7 +63,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                               filled: true,
                               fillColor: Colors.white.withOpacity(0.6),
                               prefixIcon: Icon(Icons.vpn_key),
-                              hintText: 'Contraseña',
+                              hintText: 'Password',
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
@@ -77,7 +77,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                             child: ElevatedButton.icon(
                               icon: Icon(Icons.lock),
                               onPressed: () => this.logInClick(context),
-                              label: Text('Ingresar',
+                              label: Text('Login',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontFamily: 'Coolvetica',
@@ -87,7 +87,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                           ),
                         ),
                         CheckboxListTile(
-                          title: Text('Recuerdame',
+                          title: Text('Remember Me',
                             style: TextStyle(
                               color: Theme.of(context).dialogBackgroundColor,
                             ),
@@ -107,10 +107,10 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
             child: Card(
               color: Colors.transparent,
               elevation: 0,
-              child: Text('REGISTRARME',
+              child: Text('Register New Account',
                 style: TextStyle(
                   decoration: TextDecoration.underline,
-                  decorationThickness: 4,
+                  decorationThickness: 2,
                   color: Theme.of(context).dialogBackgroundColor,
                 )
               ),
