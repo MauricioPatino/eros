@@ -42,19 +42,25 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                       children: <Widget>[
                         Padding(
                           padding: EdgeInsets.all(5),
-                          child: TextField(
-                            style: Theme.of(context).textTheme.headline6,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white.withOpacity(0.6),
-                              prefixIcon: Icon(Icons.person),
-                              hintText: 'Correo Electrónico',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
+                          child:
+                            ListTile(
+                              leading: Image( image: AssetImage('assets/img/PERSONITA.png')),
+                              title:
+                                TextField(
+                                  style: Theme.of(context).textTheme.headline6,
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white.withOpacity(0.6),
+                                    prefixIcon: Icon(Icons.person),
+                                    hintText: 'Correo Electrónico',
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
+                            )
+                        ,
                         Padding(
                           padding: EdgeInsets.all(5),
                           child: TextField(
