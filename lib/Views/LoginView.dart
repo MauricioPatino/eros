@@ -21,7 +21,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/img/logo_sin_text.png',
+              Image.asset('assets/img/eros_light.png',
                 width: 0.8 * MediaQuery.of(context).size.width,
               ),
               Padding(
@@ -42,19 +42,25 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                       children: <Widget>[
                         Padding(
                           padding: EdgeInsets.all(5),
-                          child: TextField(
-                            style: Theme.of(context).textTheme.headline6,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white.withOpacity(0.6),
-                              prefixIcon: Icon(Icons.person),
-                              hintText: 'Username or email',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
+                          child:
+                            ListTile(
+                              leading: Image( image: AssetImage('assets/img/PERSONITA.png')),
+                              title:
+                                TextField(
+                                  style: Theme.of(context).textTheme.headline6,
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white.withOpacity(0.6),
+                                    prefixIcon: Icon(Icons.person),
+                                    hintText: 'Correo Electrónico',
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
+                            )
+                        ,
                         Padding(
                           padding: EdgeInsets.all(5),
                           child: TextField(
@@ -63,7 +69,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                               filled: true,
                               fillColor: Colors.white.withOpacity(0.6),
                               prefixIcon: Icon(Icons.vpn_key),
-                              hintText: 'Password',
+                              hintText: 'Contraseña',
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
@@ -77,7 +83,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                             child: ElevatedButton.icon(
                               icon: Icon(Icons.lock),
                               onPressed: () => this.logInClick(context),
-                              label: Text('Login',
+                              label: Text('Ingresar',
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontFamily: 'Coolvetica',
@@ -87,7 +93,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                           ),
                         ),
                         CheckboxListTile(
-                          title: Text('Remember Me',
+                          title: Text('Recuerdame',
                             style: TextStyle(
                               color: Theme.of(context).dialogBackgroundColor,
                             ),
@@ -107,10 +113,10 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
             child: Card(
               color: Colors.transparent,
               elevation: 0,
-              child: Text('Register New Account',
+              child: Text('REGISTRARME',
                 style: TextStyle(
                   decoration: TextDecoration.underline,
-                  decorationThickness: 2,
+                  decorationThickness: 4,
                   color: Theme.of(context).dialogBackgroundColor,
                 )
               ),
