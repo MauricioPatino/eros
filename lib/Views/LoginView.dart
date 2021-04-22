@@ -1,3 +1,4 @@
+import 'package:eros/Constants/Routes.dart';
 import 'package:eros/Interfaces/LoginViewInterface.dart';
 import 'package:flutter/material.dart';
 
@@ -21,27 +22,29 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/img/eros_light.png',
-                width: 0.8 * MediaQuery.of(context).size.width,
+              Image.asset('assets/img/logo_sin_text.png',
+                width: 0.55 * MediaQuery.of(context).size.width,
               ),
               Padding(
                 padding: EdgeInsets.only(
                   left: 30,
                   right: 30,
                   bottom: 30,
+                  top: 50,
                 ),
                 child: Container(
                   height: 300,
                   child: Card(
+                    elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    color: Theme.of(context).backgroundColor.withOpacity(0.2),
+                    color: Theme.of(context).backgroundColor.withOpacity(0.111),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Padding(
-                          padding: EdgeInsets.all(5),
+                          padding: EdgeInsets.all(1),
                           child:
                             ListTile(
                               leading: Image( image: AssetImage('assets/img/PERSONITA.png')),
@@ -51,56 +54,32 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor: Colors.white.withOpacity(0.6),
-                                    prefixIcon: Icon(Icons.person),
-                                    hintText: 'Correo Electrónico',
+                                    hintText: 'Username or email',
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30),
                                     ),
                                   ),
                                 ),
                               ),
-                            )
-                        ,
-                        Padding(
-                          padding: EdgeInsets.all(5),
-                          child: TextField(
-                            style: Theme.of(context).textTheme.title,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white.withOpacity(0.6),
-                              prefixIcon: Icon(Icons.vpn_key),
-                              hintText: 'Contraseña',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
                             ),
-                          ),
-                        ),
                         Padding(
                           padding: EdgeInsets.all(5),
-                          child: SizedBox(
-                            width: double.infinity,
-                            child: ElevatedButton.icon(
-                              icon: Icon(Icons.lock),
-                              onPressed: () => this.logInClick(context),
-                              label: Text('Ingresar',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontFamily: 'Coolvetica',
+                          child:
+                          ListTile(
+                            leading: Image(image: AssetImage('assets/img/llave.png')),
+                            title:
+                                TextField(
+                                  style: Theme.of(context).textTheme.title,
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white.withOpacity(0.6),
+                                    hintText: 'Password',
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
                           ),
-                        ),
-                        CheckboxListTile(
-                          title: Text('Recuerdame',
-                            style: TextStyle(
-                              color: Theme.of(context).dialogBackgroundColor,
-                            ),
-                          ),
-                          onChanged: (value) => print('CHANGED'),
-                          controlAffinity: ListTileControlAffinity.leading,
-                          value: true,
                         ),
                       ],
                     ),
@@ -110,19 +89,30 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
             ],
           ),
           Positioned(
+            bottom: 10,
+                width: 100,
+                left: 50,
+                child: Card(
+                  color: Colors.transparent,
+                  elevation: 0,
+                  child: ListTile(
+                    leading: Image(image: AssetImage('assets/img/PERSONITA.png')),
+                    onTap: () => Navigator.of(context).pushNamed(ROUTE_HOME),
+                  ),
+                ),
+            ),
+          Positioned(
+            bottom: 10,
+            width: 100,
+            right: 50,
             child: Card(
               color: Colors.transparent,
               elevation: 0,
-              child: Text('REGISTRARME',
-                style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  decorationThickness: 4,
-                  color: Theme.of(context).dialogBackgroundColor,
-                )
+              child: ListTile(
+                leading: Image(image: AssetImage('assets/img/PERSONITA.png')),
+                onTap: () => Navigator.of(context).pushNamed(ROUTE_HOME),
               ),
             ),
-            bottom: 10,
-            right: 10,
           ),
         ],
       ),
