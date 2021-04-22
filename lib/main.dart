@@ -7,15 +7,17 @@ import 'package:eros/Views/GameView.dart';
 import 'package:eros/Views/LoginView.dart';
 import 'package:eros/Views/SettingsView.dart';
 import 'package:eros/Views/ShopView.dart';
+import 'package:eros/Views/SmokeView.dart';
 import 'package:eros/Views/VibratorView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import "package:eros/Views/CartView.dart";
 import "package:eros/Views/UserView.dart";
 import "package:eros/Views/PaymentView.dart";
 import "package:eros/Views/InstructionView.dart";
 import 'package:flutter_credit_card/flutter_credit_card.dart';
-
+import 'package:eros/Views/SmokeView.dart';
+import 'package:eros/Views/ToyView.dart';
+import 'package:eros/Views/TruthView.dart';
 
 import 'Components/RouteTransition/FadeRouteTransition.dart';
 import 'Constants/Routes.dart';
@@ -56,6 +58,9 @@ class EROSApp extends StatelessWidget{
             case ROUTE_PAYMENT: return FadeRouteTransition<dynamic>(widget: PaymentView());
             case ROUTE_INSTRUCTION: return FadeRouteTransition<dynamic>(widget: InstructionView());
             case ROUTE_VIBRATOR: return FadeRouteTransition<dynamic>(widget: VibratorView());
+            case ROUTE_SMOKE: return FadeRouteTransition<dynamic>(widget: SmokeView());
+            case ROUTE_TOY: return FadeRouteTransition<dynamic>(widget: ToyView());
+            case ROUTE_TRUTH: return FadeRouteTransition<dynamic>(widget: TruthView());
           }
           return FadeRouteTransition(widget: HomeView());
         },

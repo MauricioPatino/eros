@@ -10,5 +10,8 @@ const ROUTE_USER = '/user';
 const ROUTE_PAYMENT ='/payment';
 const ROUTE_INSTRUCTION ='/instruction';
 const ROUTE_VIBRATOR = '/vibrator';
+const ROUTE_SMOKE ='/smoke';
+const ROUTE_TOY ='/toy';
+const ROUTE_TRUTH ='/truth';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
