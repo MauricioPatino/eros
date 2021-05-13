@@ -49,7 +49,6 @@ class SmokeView extends StatelessWidget {
                 Image(
                   image: AssetImage('assets/img/vino.png'), width: 200,),
               ],
-
             ),
           ),
         ]

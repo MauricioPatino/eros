@@ -74,47 +74,42 @@ class HomeView extends StatelessWidget{
         children: <Widget>[
           Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 200,
-                  ),
-                  child: Container(
-                    child: Image.asset('assets/img/eros_light.png',
-                        width: 1.0 * MediaQuery.of(context).size.width,
-                        height: 0.5 * MediaQuery.of(context).size.width,
-                    ),
-                  ),
+                Align(
+                  alignment: Alignment.topCenter,
+                    child: Image.asset('assets/img/eros_light.png'),
+
                 ),
               ],
             ),
           ),
-          Positioned(
-            bottom: 10,
-            left: MediaQuery.of(context).size.width / 4,
-            child: Column(
-              children: <Widget>[
-                FadeLoopComponent(
-                  beginOpacity: 0,
-                  endOpacity: 1,
-                  duration: Duration(
-                    seconds: 2,
-                  ),
-                  child: Text('Truth or Dare',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 12,
-                  width: MediaQuery.of(context).size.width / 2,
-                  child: Card(),
-                ),
-              ],
-            ),
-          ),
+          // Positioned(
+          //   bottom: 10,
+          //   left: MediaQuery.of(context).size.width / 4,
+          //   child: Column(
+          //     children: <Widget>[
+          //       FadeLoopComponent(
+          //         beginOpacity: 0,
+          //         endOpacity: 1,
+          //         duration: Duration(
+          //           seconds: 2,
+          //         ),
+          //         child: Text('Truth or Dare',
+          //           style: TextStyle(
+          //               color: Colors.white,
+          //               fontSize: 16
+          //           ),
+          //         ),
+          //       ),
+          //       Container(
+          //         height: 12,
+          //         width: MediaQuery.of(context).size.width / 2,
+          //         child: Card(),
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );

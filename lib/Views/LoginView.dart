@@ -1,13 +1,32 @@
 import 'package:eros/Constants/Routes.dart';
 import 'package:eros/Interfaces/LoginViewInterface.dart';
 import 'package:flutter/material.dart';
+import 'package:neon/neon.dart';
+
 
 class LoginView extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => LoginViewState();
 }
 
-class LoginViewState extends State<LoginView> implements LoginViewInterface{
+class LoginViewState extends State<LoginView> with SingleTickerProviderStateMixin implements LoginViewInterface{
+
+  AnimationController _animationController;
+  Animation _animation;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _animationController = AnimationController(vsync:this, duration: Duration(seconds: 2));
+    _animationController.repeat(reverse: true);
+    _animation =  Tween(begin: 2.0,end: 15.0).animate(_animationController)..addListener((){
+      setState(() {
+
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,7 +58,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    color: Theme.of(context).backgroundColor.withOpacity(0.111),
+                    color: Theme.of(context).backgroundColor.withOpacity(0.01),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -49,15 +68,29 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                             ListTile(
                               leading: Image( image: AssetImage('assets/img/PERSONITA.png')),
                               title:
-                                TextField(
-                                  style: Theme.of(context).textTheme.headline6,
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white.withOpacity(0.6),
-                                    hintText: 'Username or email',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(30),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.blueAccent,
+                                        style: BorderStyle.solid,
+                                        width: 1.0,
                                     ),
+                                    borderRadius: BorderRadius.circular(30.0),
+                                     boxShadow: [BoxShadow(
+                                       color: Colors.blue.withAlpha(225),
+                                         blurRadius: 90.0,
+                                         offset: const Offset(0.0, 0.0,),
+                                         spreadRadius: _animation.value,
+                                    )]
+                                  ),
+                                  child: TextField(
+                                    style: Theme.of(context).textTheme.headline6,
+                                    // decoration: InputDecoration(
+                                    //   enabledBorder: OutlineInputBorder(
+                                    //     borderRadius: BorderRadius.all(Radius.circular(30)),
+                                    //     borderSide: new BorderSide(color: Colors.blueAccent),
+                                    //   ),
+                                    // ),
                                   ),
                                 ),
                               ),
@@ -68,15 +101,23 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
                           ListTile(
                             leading: Image(image: AssetImage('assets/img/llave.png')),
                             title:
-                                TextField(
-                                  style: Theme.of(context).textTheme.title,
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white.withOpacity(0.6),
-                                    hintText: 'Password',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(30),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.blueAccent,
+                                      style: BorderStyle.solid,
+                                      width: 2.0,
                                     ),
+                                      borderRadius: BorderRadius.circular(50),
+                                  ),
+                                  child: TextField(
+                                    style: Theme.of(context).textTheme.headline6,
+                                    // decoration: InputDecoration(
+                                    //   border: OutlineInputBorder(
+                                    //     borderRadius: BorderRadius.all(Radius.circular(30)),
+                                    //     borderSide: new BorderSide(color: Colors.blueAccent),
+                                    //   ),
+                                    // ),
                                   ),
                                 ),
                           ),
@@ -109,7 +150,7 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
               color: Colors.transparent,
               elevation: 0,
               child: ListTile(
-                leading: Image(image: AssetImage('assets/img/PERSONITA.png')),
+                leading: Image(image: AssetImage('assets/img/question.png')),
                 onTap: () => Navigator.of(context).pushNamed(ROUTE_HOME),
               ),
             ),
@@ -124,3 +165,9 @@ class LoginViewState extends State<LoginView> implements LoginViewInterface{
     Navigator.of(context).popUntil((route) => route.isFirst);
   }
 }
+
+// @override
+// void dispose() {
+//   controller.dispose();
+//   super.dispose();
+// }

@@ -26,6 +26,8 @@ dependencies:
   credit_card: ^0.1.6
   flutter_credit_card: ^2.0.0
   carousel_slider: ^3.0.0
+  neon: ^0.0.1
+  dice_tower: ^0.7.0
 
 dev_dependencies:
   flutter_test:

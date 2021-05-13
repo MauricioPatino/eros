@@ -18,6 +18,7 @@ import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:eros/Views/SmokeView.dart';
 import 'package:eros/Views/ToyView.dart';
 import 'package:eros/Views/TruthView.dart';
+import 'package:eros/Views/DiceView.dart';
 
 import 'Components/RouteTransition/FadeRouteTransition.dart';
 import 'Constants/Routes.dart';
@@ -61,6 +62,7 @@ class EROSApp extends StatelessWidget{
             case ROUTE_SMOKE: return FadeRouteTransition<dynamic>(widget: SmokeView());
             case ROUTE_TOY: return FadeRouteTransition<dynamic>(widget: ToyView());
             case ROUTE_TRUTH: return FadeRouteTransition<dynamic>(widget: TruthView());
+            case ROUTE_DICE: return FadeRouteTransition<dynamic>(widget: DiceView());
           }
           return FadeRouteTransition(widget: HomeView());
         },

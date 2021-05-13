@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "79811867892",
-    "firebase_url": "https://eros-2b48c.firebaseio.com",
-    "project_id": "eros-2b48c",
-    "storage_bucket": "eros-2b48c.appspot.com"
+    "project_number": "450840619493",
+    "project_id": "eros-fba9a",
+    "storage_bucket": "eros-fba9a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:79811867892:android:b422d39ee10e5264e2daa1",
+        "mobilesdk_app_id": "1:450840619493:android:dc520002f3f46269c7670c",
         "android_client_info": {
           "package_name": "com.ddwtechnology.eros"
         }
       },
       "oauth_client": [
         {
-          "client_id": "79811867892-b92njljbla32upn91842fhsiji2aipa1.apps.googleusercontent.com",
+          "client_id": "450840619493-3nf4fklqpjdo0v9cvmp4jjgs119n3tir.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAKdTKPrTZ5Sxa3v0-yGhwGfc0P48Yz_Uc"
+          "current_key": "AIzaSyDoLfMmWf7PvIFG2FJZECxTNB2in-X9W-c"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "79811867892-b92njljbla32upn91842fhsiji2aipa1.apps.googleusercontent.com",
+              "client_id": "450840619493-3nf4fklqpjdo0v9cvmp4jjgs119n3tir.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

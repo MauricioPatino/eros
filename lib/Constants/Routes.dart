@@ -13,5 +13,6 @@ const ROUTE_VIBRATOR = '/vibrator';
 const ROUTE_SMOKE ='/smoke';
 const ROUTE_TOY ='/toy';
 const ROUTE_TRUTH ='/truth';
+const ROUTE_DICE ='/dice';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();

@@ -30,11 +30,17 @@ class TruthView extends StatelessWidget {
   }
 
   Widget buildBody(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Image.asset('assets/img/eros_letras.png')
-      ],
+    return Center(
+      child: SizedBox(
+        width: 200,
+        height: 200,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset('assets/img/logo_sin_text.png', fit: BoxFit.cover)
+          ],
+        ),
+      ),
     );
   }
 
