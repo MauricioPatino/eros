@@ -50,31 +50,33 @@ class DiceViewState extends State<DiceView>{
                 child: Container(
                   child: Form(
                     key: _formKey,
-                    child: Column(
-                      children: <Widget>[
-                        ...diceNums.map((diceNum) => ChallengeTextField (
-                          index: diceNum,
-                          decoration: InputDecoration(
-                              fillColor: Colors.white,
-                              filled: true,
-                              labelStyle: TextStyle(color: Colors.blue),
-                              hintStyle: TextStyle(color: Colors.black),
-                              labelText: "DICE ${diceStr[diceNum-1]}", hintText: "PUT A CHALLENGE"),
-                        )).toList(),
-                      FormSubmitButton(
-                        onPressed: () {
-                          // Validate returns true if the form is valid, otherwise false.
-                          if (_formKey.currentState.validate()) {
-                            _formKey.currentState.save();
+                    child: SingleChildScrollView (
+                      child: Column(
+                        children: <Widget>[
+                          ...diceNums.map((diceNum) => ChallengeTextField (
+                            index: diceNum,
+                            decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                labelStyle: TextStyle(color: Colors.blue),
+                                hintStyle: TextStyle(color: Colors.black),
+                                labelText: "DICE ${diceStr[diceNum-1]}", hintText: "PUT A CHALLENGE"),
+                          )).toList(),
+                        FormSubmitButton(
+                          onPressed: () {
+                            // Validate returns true if the form is valid, otherwise false.
+                            if (_formKey.currentState.validate()) {
+                              _formKey.currentState.save();
 
-                            ScaffoldMessenger.of(_formKey.currentContext).showSnackBar(
-                                SnackBar(content: Text('Processing Data')));
-                          }
-                        },
-                    ),
-                        // Consumer<ChallengesModel>(builder: (context, challenges, child) =>
-                        //     Text("password = '${challenges.getChallenge(1)}'", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white), ))
+                              ScaffoldMessenger.of(_formKey.currentContext).showSnackBar(
+                                  SnackBar(content: Text('Processing Data')));
+                            }
+                          },
+                      ),
+                          // Consumer<ChallengesModel>(builder: (context, challenges, child) =>
+                          //     Text("password = '${challenges.getChallenge(1)}'", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white), ))
                   ]),
+                    ),
                 )),
               ),
           )],
