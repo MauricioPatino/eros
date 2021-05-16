@@ -19,10 +19,12 @@ import 'package:eros/Views/SmokeView.dart';
 import 'package:eros/Views/ToyView.dart';
 import 'package:eros/Views/TruthView.dart';
 import 'package:eros/Views/DiceView.dart';
+import 'package:provider/provider.dart';
 
 import 'Components/RouteTransition/FadeRouteTransition.dart';
 import 'Constants/Routes.dart';
 import 'Views/HomeView.dart';
+import 'data/challenges.dart';
 
 void main() => runApp(EROSApp());
 
@@ -41,31 +43,34 @@ class EROSApp extends StatelessWidget{
           currentFocus.unfocus();
         }
       },
-      child: MaterialApp(
-        initialRoute: ROUTE_LOGIN,
-        title: 'Direct Message and Transaction',
-        theme: darkTheme,
-        navigatorKey: navigatorKey,
-        onGenerateRoute: (RouteSettings settings){
-          Map<String,dynamic> args = settings.arguments != null ? Map<String,dynamic>.of(settings.arguments) : {};
-          switch(settings.name){
-            case ROUTE_HOME: return FadeRouteTransition<dynamic>(widget: HomeView());
-            case ROUTE_LOGIN: return FadeRouteTransition<dynamic>(widget: LoginView());
-            case ROUTE_SHOP: return SlideRightRouteTransition<dynamic>(widget: ShopView());
-            case ROUTE_SETTINGS: return SlideLeftRouteTransition<dynamic>(widget: SettingsView());
-            case ROUTE_GAME: return FadeRouteTransition<dynamic>(widget: GameView());
-            case ROUTE_CART: return FadeRouteTransition<dynamic>(widget: CartView());
-            case ROUTE_USER: return FadeRouteTransition<dynamic>(widget: UserView());
-            case ROUTE_PAYMENT: return FadeRouteTransition<dynamic>(widget: PaymentView());
-            case ROUTE_INSTRUCTION: return FadeRouteTransition<dynamic>(widget: InstructionView());
-            case ROUTE_VIBRATOR: return FadeRouteTransition<dynamic>(widget: VibratorView());
-            case ROUTE_SMOKE: return FadeRouteTransition<dynamic>(widget: SmokeView());
-            case ROUTE_TOY: return FadeRouteTransition<dynamic>(widget: ToyView());
-            case ROUTE_TRUTH: return FadeRouteTransition<dynamic>(widget: TruthView());
-            case ROUTE_DICE: return FadeRouteTransition<dynamic>(widget: DiceView());
-          }
-          return FadeRouteTransition(widget: HomeView());
-        },
+      child: ChangeNotifierProvider (
+        create: (context) => ChallengesModel(),
+        child: MaterialApp(
+          initialRoute: ROUTE_LOGIN,
+          title: 'Direct Message and Transaction',
+          theme: darkTheme,
+          navigatorKey: navigatorKey,
+          onGenerateRoute: (RouteSettings settings){
+            Map<String,dynamic> args = settings.arguments != null ? Map<String,dynamic>.of(settings.arguments) : {};
+            switch(settings.name){
+              case ROUTE_HOME: return FadeRouteTransition<dynamic>(widget: HomeView());
+              case ROUTE_LOGIN: return FadeRouteTransition<dynamic>(widget: LoginView());
+              case ROUTE_SHOP: return SlideRightRouteTransition<dynamic>(widget: ShopView());
+              case ROUTE_SETTINGS: return SlideLeftRouteTransition<dynamic>(widget: SettingsView());
+              case ROUTE_GAME: return FadeRouteTransition<dynamic>(widget: GameView());
+              case ROUTE_CART: return FadeRouteTransition<dynamic>(widget: CartView());
+              case ROUTE_USER: return FadeRouteTransition<dynamic>(widget: UserView());
+              case ROUTE_PAYMENT: return FadeRouteTransition<dynamic>(widget: PaymentView());
+              case ROUTE_INSTRUCTION: return FadeRouteTransition<dynamic>(widget: InstructionView());
+              case ROUTE_VIBRATOR: return FadeRouteTransition<dynamic>(widget: VibratorView());
+              case ROUTE_SMOKE: return FadeRouteTransition<dynamic>(widget: SmokeView());
+              case ROUTE_TOY: return FadeRouteTransition<dynamic>(widget: ToyView());
+              case ROUTE_TRUTH: return FadeRouteTransition<dynamic>(widget: TruthView());
+              case ROUTE_DICE: return FadeRouteTransition<dynamic>(widget: DiceView());
+            }
+            return FadeRouteTransition(widget: HomeView());
+          },
+        ),
       ),
     );
   }

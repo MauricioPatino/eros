@@ -28,6 +28,7 @@ dependencies:
   carousel_slider: ^3.0.0
   neon: ^0.0.1
   dice_tower: ^0.7.0
+  provider: ^4.3.3
 
 dev_dependencies:
   flutter_test:

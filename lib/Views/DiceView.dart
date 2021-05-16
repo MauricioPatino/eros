@@ -1,9 +1,10 @@
 import 'package:eros/Constants/Routes.dart';
+import 'package:eros/data/challenges.dart';
+import 'package:eros/data/form_text.dart';
 import 'package:flutter/material.dart';
-import "package:dice_tower/dice_tower.dart";
 import 'package:eros/data/button.dart';
-import 'package:eros/data/form_text';
-import 'package:eros/data/form_model.dart';
+import 'package:eros/data/form_text.dart';
+import 'package:provider/provider.dart';
 
 class DiceView extends StatefulWidget {
   @override
@@ -16,8 +17,8 @@ class DiceViewState extends State<DiceView>{
   // uniquely identifies a Form
   final _formKey = GlobalKey<FormState>();
 
-  // holds the form data for access
-   final model = FormModel();
+  final diceNums = [1,2,3,4,5,6];
+  final diceStr = ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX'];
 
     @override
     Widget build(BuildContext context) {
@@ -51,37 +52,28 @@ class DiceViewState extends State<DiceView>{
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
-                      MyFormTextField(
-                      isObscure: false,
-                      decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        filled: true,
-                        labelStyle: TextStyle(color: Colors.blue),
-                          hintStyle: TextStyle(color: Colors.black),
-                          labelText: "DICE ONE", hintText: "PUT A CHALLENGE"),
+                        ...diceNums.map((diceNum) => ChallengeTextField (
+                          index: diceNum,
+                          decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              labelStyle: TextStyle(color: Colors.blue),
+                              hintStyle: TextStyle(color: Colors.black),
+                              labelText: "DICE ${diceStr[diceNum-1]}", hintText: "PUT A CHALLENGE"),
+                        )).toList(),
+                      FormSubmitButton(
+                        onPressed: () {
+                          // Validate returns true if the form is valid, otherwise false.
+                          if (_formKey.currentState.validate()) {
+                            _formKey.currentState.save();
 
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return 'Enter a sexy challenge';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        model.password = value;
-                      },
+                            ScaffoldMessenger.of(_formKey.currentContext).showSnackBar(
+                                SnackBar(content: Text('Processing Data')));
+                          }
+                        },
                     ),
-                        FormSubmitButton(
-                          onPressed: () {
-                            // Validate returns true if the form is valid, otherwise false.
-                            if (_formKey.currentState.validate()) {
-                              _formKey.currentState.save();
-                              print(model);
-
-                              ScaffoldMessenger.of(_formKey.currentContext).showSnackBar(
-                                  SnackBar(content: Text('Processing Data')));
-                            }
-                          },
-                        ),
+                        // Consumer<ChallengesModel>(builder: (context, challenges, child) =>
+                        //     Text("password = '${challenges.getChallenge(1)}'", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white), ))
                   ]),
                 )),
               ),

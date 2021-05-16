@@ -4,9 +4,12 @@ import 'package:eros/Components/Animation/DDWAnimatedSwitcher.dart';
 import 'package:eros/Components/Animation/FadeLoopComponent.dart';
 import 'package:eros/Components/Animation/ScaleLoopComponent.dart';
 import 'package:eros/Constants/Routes.dart';
+import 'package:eros/data/challenges.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:dice_tower/dice_tower.dart";
 import 'dart:math' as math;
+import 'package:provider/provider.dart';
 
 void main(List<String> arguments) async {
   // Defining dice pools.
@@ -69,9 +72,21 @@ class GameView extends StatelessWidget {
                 ),
               ),
             ),
+            Positioned(
+              width: MediaQuery.of(context).size.width,
+                top: 370,
+                left: 0,
+                child: Row (
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[ Flexible(
+                    child: Consumer<ChallengesModel>(builder: (context, challenges, child) =>
+                        Text(challenges.getSelectedChallenge(), style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.white),textAlign: TextAlign.center, )),
+                  )],
+                )
+            ),
             Container(
               child: Positioned(
-                  top: 310,
+                  top: 370,
                   left: 10,
                     child: Transform.rotate(
                       angle: -math.pi/4,
@@ -89,13 +104,16 @@ class GameView extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 450,
+              top: 510,
               left: 150,
               child: Column(
                 // mainAxisAlignment: MainAxisAlignment.bottom,
                 children: [
-                  Image(
-                    image: AssetImage('assets/img/JUEGOS.png'), width: 200),
+                  GestureDetector(
+                    onTap: () {Provider.of<ChallengesModel>(context, listen: false).rollDice();},
+                    child: Image(
+                      image: AssetImage('assets/img/JUEGOS.png'), width: 200),
+                  ),
                 ],
 
               )
