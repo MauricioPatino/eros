@@ -1,6 +1,6 @@
 # eros
 
-Eros application.
+Prototype for an adult themed couple game application with a shopping page, game page, truth or dare page. Played a lot with the frontend to test Flutter. 
 
 ## Getting Started
 
